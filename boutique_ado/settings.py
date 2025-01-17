@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-p1=vy$o)tlm#9quzn==8%4*d)lpy2ll3e^#11ee&-6$yjknm7l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-bpstephanie-boutiqueado-1rfp5hxrgxg.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['8000-bpstephanie-boutiqueado-4mhvovwe6t9.ws.codeinstitute-ide.net']
 
 
 # Application definition
@@ -110,7 +110,7 @@ WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
