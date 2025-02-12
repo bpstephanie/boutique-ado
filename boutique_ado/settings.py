@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-p1=vy$o)tlm#9quzn==8%4*d)lpy2ll3e^#11ee&-6$yjknm7l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'boutique_ado.urls'
@@ -105,7 +106,8 @@ SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+#ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_LOGIN_METHODS = {'username', 'email'}
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
