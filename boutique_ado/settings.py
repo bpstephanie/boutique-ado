@@ -199,22 +199,22 @@ if 'USE_AWS' in os.environ:
     # DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     # MEDIAFILES_LOCATION = 'media'
 
-# STORAGES = {
-#     "default": {
-#         "BACKEND": "custom_storages.MediaStorage",
-#     },
-#     "staticfiles": {
-#         "BACKEND": "custom_storages.StaticStorage",
-#     },
-# }
     STORAGES = {
         "default": {
-            "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+            "BACKEND": "custom_storages.MediaStorage",
         },
         "staticfiles": {
-            "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+            "BACKEND": "custom_storages.StaticStorage",
         },
     }
+    # STORAGES = {
+    #     "default": {
+    #         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    #     },
+    #     "staticfiles": {
+    #         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    #     },
+    # }
 
 # Override static and media URLs in production
 STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STORAGES["staticfiles"]["location"]}/'
