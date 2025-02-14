@@ -19,7 +19,11 @@ class Order(models.Model):
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = models.CharField(max_length=200, choices=list([('', 'Select Country')] + CountryField().choices), default='United Kingdom')
+    country = models.CharField(
+        max_length=200,
+        choices=[('', 'Select Country')] + list(CountryField().choices),
+        default='United Kingdom'
+    )
     postcode = models.CharField(max_length=20, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
@@ -81,3 +85,5 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
+
+ 

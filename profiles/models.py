@@ -21,7 +21,10 @@ class UserProfile(models.Model):
     default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
     default_postcode = models.CharField(max_length=20, null=True, blank=True)
     default_county = models.CharField(max_length=80, null=True, blank=True)
-    default_country = models.CharField(max_length=200, choices=list([('', 'Select Country')] + CountryField().choices),  null=True, blank=True)
+    default_country = models.CharField(
+        max_length=200,
+        choices=[('', 'Select Country')] + list(CountryField().choices),
+        null=True, blank=True)
 
     def __str__(self):
         return self.user.username
